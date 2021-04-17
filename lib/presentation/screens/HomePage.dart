@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/bottom_navigation.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
 
           child: Container(
 
-            color: Colors.redAccent,
+            color: Colors.blueGrey.shade900 ,
             child: ListView(
               children: [
                 DrawerHeader(child: Text('Header section')),

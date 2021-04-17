@@ -1,10 +1,15 @@
 
 
+import 'dart:math';
+
+import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:kids_care/presentation/screens/HomePage.dart';
 import 'package:kids_care/presentation/screens/Medicine.dart';
 import 'package:kids_care/presentation/screens/doctors.dart';
 import 'package:kids_care/presentation/screens/patients.dart';
+import 'package:kids_care/presentation/screens/testpage.dart';
+
 
 
 
@@ -14,6 +19,8 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
+
+  Color _color = Colors.black;
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = [
     HomePage(),
@@ -66,15 +73,55 @@ class _BottomNavigationState extends State<BottomNavigation> {
             currentIndex: _selectedIndex,
             selectedItemColor: Colors.white,
             unselectedItemColor: Colors.black,
-
             onTap: _onItemTapped,
           ),
        ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: null,
-        child: new Icon(Icons.add),
-      ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+floatingActionButton:
+CircularMenu(
+  startingAngleInRadian : 1.0 * pi ,
+  // last item angle
+  endingAngleInRadian : 1.6*pi,
+  alignment: Alignment.bottomRight,
+  // backgroundWidget: Center(
+  //   child: Text('nothing to show'),
+  // ),
+  toggleButtonColor: Colors.blueGrey[900],
+  items: [
+    CircularMenuItem(
+        icon: Icons.home,
+        color: Colors.green,
+        onTap: () {
+          setState(() {
+            _color = Colors.green;
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>TestPage()));
+            // _colorName = 'Green';
+
+          });
+        }),
+    CircularMenuItem(
+        icon: Icons.search,
+        color: Colors.blue,
+        onTap: () {
+          setState(() {
+            _color = Colors.blue;
+            // _colorName = 'Blue';
+          });
+        }),
+    CircularMenuItem(
+        icon: Icons.settings,
+        color: Colors.orange,
+        onTap: () {
+          setState(() {
+            _color = Colors.orange;
+
+            // _colorName = 'Orange';
+          });
+        }),
+
+
+  ],
+),
+
     );
   }
 }
