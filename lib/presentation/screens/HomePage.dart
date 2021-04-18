@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final PageController controller = PageController(initialPage: 0);
   int _currentPage = 0;
+
   @override
   void initState() {
     super.initState();
@@ -27,6 +29,7 @@ class _HomePageState extends State<HomePage> {
       );
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -63,48 +66,70 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        body: Container(
-          height: MediaQuery.of(context).size.height / 4 * 1.15,
-          child: Column(
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: TabBarView(
             children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TabBarView(
-                    children: [
-                      PageView(
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Container(
+                      height: 250,
+                      child: PageView(
                         scrollDirection: Axis.horizontal,
                         controller: controller,
                         children: <Widget>[
                           Image.asset(
                             'assets/images/pageview1.jpg',
-                            height: 150,
-                            width: 150,
                             fit: BoxFit.fitWidth,
                           ),
                           Image.asset(
                             'assets/images/pageview2.jpg',
-                            height: 150,
-                            width: 150,
                             fit: BoxFit.fitWidth,
                           ),
                           Image.asset(
                             'assets/images/pageview3.jpg',
-                            height: 150,
-                            width: 150,
                             fit: BoxFit.fitWidth,
                           ),
-
                         ],
                       ),
-                      Center(child: Text('OPV'))
-                    ],
-                  ),
+                    ),
+                    GridView.count(
+                      physics: NeverScrollableScrollPhysics(),
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10.0,
+                        mainAxisSpacing: 6.0,
+                        shrinkWrap: true,
+                        children: List.generate(
+                    10,
+                    (index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage('https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80'),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(20.0),),
+                          ),
+                        ),
+                      );
+                    },
+                        ),
+                      ),
+                  ],
                 ),
               ),
+
+              /// opv section....
+              Center(child: Text('OPV')),
             ],
           ),
         ),
+
+        /// menu drawer
         drawer: Container(
           // width:MediaQuery.of(context).size.width/2,
           child: Drawer(

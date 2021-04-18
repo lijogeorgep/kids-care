@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SplashScreenPage(),
+      // theme: ThemeData(scaffoldBackgroundColor: Colors.blueGrey.shade100),
     );
   }
 }

@@ -73,7 +73,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         // backgroundWidget: Center(
         //   child: Text('nothing to show'),
         // ),
-        toggleButtonColor: Colors.blue.shade500,
+        toggleButtonColor: Colors.blue.shade900,
         items: [
           CircularMenuItem(
               icon: Icons.home,
