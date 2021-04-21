@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
+import 'package:kids_care/presentation/widgets/home_form.dart';
 import '../widgets/bottom_navigation.dart';
 class IntroductionSlider extends StatefulWidget {
   @override
@@ -44,7 +45,7 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
   }
 
   void onDonePress() {
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigation()));
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeForm()));
   }
 
   @override

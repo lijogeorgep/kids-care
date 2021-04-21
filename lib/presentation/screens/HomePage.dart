@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+
 import 'package:kids_care/presentation/subScreens/Hompage_Links/Birth.dart';
 import 'package:kids_care/presentation/subScreens/Hompage_Links/FourteenWeeks.dart';
 import 'package:kids_care/presentation/subScreens/Hompage_Links/OneToEighteen.dart';
@@ -15,6 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final PageController controller = PageController(initialPage: 0);
+
   int _currentPage = 0;
 
   @override
@@ -40,40 +42,37 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('Kids Care'),
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            // call toggle from SlideDrawer to alternate between open and close
-            // when pressed menu button
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.pink.shade300,
-          elevation: 0,
-          // automaticallyImplyLeading: false,
-          bottom: TabBar(
-            labelColor: Colors.pink.shade300,
-            unselectedLabelColor: Colors.white,
-            indicatorSize: TabBarIndicatorSize.label,
-            indicator: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10)),
-                color: Colors.white),
-            tabs: [
-              Tab(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text("IPV"),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: AppBar(
+            centerTitle: true,
+            backgroundColor: Colors.pink.shade300,
+            elevation: 0,
+      automaticallyImplyLeading: false,
+            bottom: TabBar(
+              labelColor: Colors.pink.shade300,
+              unselectedLabelColor: Colors.white,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicator: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10)),
+                  color: Colors.white),
+              tabs: [
+                Tab(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("IPV"),
+                  ),
                 ),
-              ),
-              Tab(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text("OPV"),
+                Tab(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("OPV"),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         body: Padding(
@@ -84,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     Container(
-                      height: 200,
+                      height: 180,
                       width: MediaQuery.of(context).size.width,
                       child: PageView(
                         scrollDirection: Axis.horizontal,
@@ -94,21 +93,21 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
                               'assets/images/pageview1.jpg',
-                              fit: BoxFit.fitWidth,
+                              fit: BoxFit.cover,
                             ),
                           ),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
                               'assets/images/pageview2.jpg',
-                              fit: BoxFit.fitWidth,
+                              fit: BoxFit.cover,
                             ),
                           ),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
                               'assets/images/pageview3.jpg',
-                              fit: BoxFit.fitWidth,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ],
@@ -130,223 +129,184 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height / 2,
                       margin: EdgeInsets.only(top: 10),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: 110,
-                                height: 110,
-                                child: NeumorphicButton(
-                                  style: NeumorphicStyle(
-                                    depth: 5,
-                                    shadowDarkColor: Colors.black,
-                                    color: Colors.blue.shade300,
-                                    shape: NeumorphicShape.flat,
-                                    boxShape: NeumorphicBoxShape.roundRect(
-                                      BorderRadius.circular(100),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => Birth()));
-                                  },
-                                  child: Center(
-                                    child: NeumorphicText(
-                                      'Birth',
-                                      textStyle: NeumorphicTextStyle(
-                                        fontSize: 20,
-                                      ),
-                                      style: NeumorphicStyle(
-                                          depth: 2,
-                                          shadowDarkColor: Colors.black,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ),
+                          NeumorphicButton(
+                            style: NeumorphicStyle(
+                              depth: 5,
+                              shadowDarkColor: Colors.black,
+                              color: Colors.blue.shade300,
+                              shape: NeumorphicShape.flat,
+                              boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(10),
                               ),
-                              Container(
-                                width: 110,
-                                height: 110,
-                                child: NeumorphicButton(
-                                  style: NeumorphicStyle(
-                                    depth: 5,
-                                    shadowDarkColor: Colors.black,
-                                    color: Colors.blue.shade300,
-                                    shape: NeumorphicShape.flat,
-                                    boxShape: NeumorphicBoxShape.roundRect(
-                                      BorderRadius.circular(100),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => SixWeeks()));
-                                  },
-                                  child: Center(
-                                    child: NeumorphicText(
-                                      '6 weeks',
-                                      textStyle: NeumorphicTextStyle(
-                                        fontSize: 17,
-                                      ),
-                                      style: NeumorphicStyle(
-                                          depth: 2,
-                                          shadowDarkColor: Colors.black,
-                                          color: Colors.white),
-                                    ),
-                                  ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Birth()));
+                            },
+                            child: Center(
+                              child: NeumorphicText(
+                                'Birth',
+                                textStyle: NeumorphicTextStyle(
+                                  fontSize: 17,
                                 ),
-                              ),
-                              Container(
-                                width: 110,
-                                height: 110,
-                                child: NeumorphicButton(
-                                  style: NeumorphicStyle(
-                                    depth: 5,
+                                style: NeumorphicStyle(
+                                    depth: 2,
                                     shadowDarkColor: Colors.black,
-                                    color: Colors.blue.shade300,
-                                    shape: NeumorphicShape.flat,
-                                    boxShape: NeumorphicBoxShape.roundRect(
-                                      BorderRadius.circular(100),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => TenWeeks()));
-                                  },
-                                  child: Center(
-                                    child: NeumorphicText(
-                                      '10 weeks',
-                                      textStyle: NeumorphicTextStyle(
-                                        fontSize: 17,
-                                      ),
-                                      style: NeumorphicStyle(
-                                          depth: 2,
-                                          shadowDarkColor: Colors.black,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ),
+                                    color: Colors.white),
                               ),
-                            ],
+                            ),
                           ),
-                          SizedBox(
-                            height: 30,
+                          NeumorphicButton(
+                            style: NeumorphicStyle(
+                              depth: 5,
+                              shadowDarkColor: Colors.black,
+                              color: Colors.blue.shade300,
+                              shape: NeumorphicShape.flat,
+                              boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(10),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SixWeeks()));
+                            },
+                            child: Center(
+                              child: NeumorphicText(
+                                '6 weeks',
+                                textStyle: NeumorphicTextStyle(
+                                  fontSize: 17,
+                                ),
+                                style: NeumorphicStyle(
+                                    depth: 2,
+                                    shadowDarkColor: Colors.black,
+                                    color: Colors.white),
+                              ),
+                            ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: 110,
-                                height: 110,
-                                child: NeumorphicButton(
-                                  style: NeumorphicStyle(
-                                    depth: 5,
-                                    shadowDarkColor: Colors.black,
-                                    color: Colors.blue.shade300,
-                                    shape: NeumorphicShape.flat,
-                                    boxShape: NeumorphicBoxShape.roundRect(
-                                      BorderRadius.circular(100),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                FourteenWeeks()));
-                                  },
-                                  child: Center(
-                                    child: NeumorphicText(
-                                      '14 weeks',
-                                      textStyle: NeumorphicTextStyle(
-                                        fontSize: 17,
-                                      ),
-                                      style: NeumorphicStyle(
-                                          depth: 2,
-                                          shadowDarkColor: Colors.black,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ),
+                          NeumorphicButton(
+                            style: NeumorphicStyle(
+                              depth: 5,
+                              shadowDarkColor: Colors.black,
+                              color: Colors.blue.shade300,
+                              shape: NeumorphicShape.flat,
+                              boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(10),
                               ),
-                              Container(
-                                width: 110,
-                                height: 110,
-                                child: NeumorphicButton(
-                                  style: NeumorphicStyle(
-                                    depth: 5,
-                                    shadowDarkColor: Colors.black,
-                                    color: Colors.blue.shade300,
-                                    shape: NeumorphicShape.flat,
-                                    boxShape: NeumorphicBoxShape.roundRect(
-                                      BorderRadius.circular(100),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                SixToTwelve()));
-                                  },
-                                  child: Center(
-                                    child: NeumorphicText(
-                                      '6 - 12 months',
-                                      textStyle: NeumorphicTextStyle(
-                                        fontSize: 17,
-                                      ),
-                                      style: NeumorphicStyle(
-                                          depth: 2,
-                                          shadowDarkColor: Colors.black,
-                                          color: Colors.white),
-                                    ),
-                                  ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TenWeeks()));
+                            },
+                            child: Center(
+                              child: NeumorphicText(
+                                '10 weeks',
+                                textStyle: NeumorphicTextStyle(
+                                  fontSize: 17,
                                 ),
-                              ),
-                              Container(
-                                width: 110,
-                                height: 110,
-                                child: NeumorphicButton(
-                                  style: NeumorphicStyle(
-                                    depth: 5,
+                                style: NeumorphicStyle(
+                                    depth: 2,
                                     shadowDarkColor: Colors.black,
-                                    color: Colors.blue.shade300,
-                                    shape: NeumorphicShape.flat,
-                                    boxShape: NeumorphicBoxShape.roundRect(
-                                      BorderRadius.circular(100),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                OneToEighteen()));
-                                  },
-                                  child: Center(
-                                    child: NeumorphicText(
-                                      '1 - 18 years',
-                                      textStyle: NeumorphicTextStyle(
-                                        fontSize: 17,
-                                      ),
-                                      style: NeumorphicStyle(
-                                          depth: 2,
-                                          shadowDarkColor: Colors.black,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ),
+                                    color: Colors.white),
                               ),
-                            ],
+                            ),
+                          ),
+                          NeumorphicButton(
+                            style: NeumorphicStyle(
+                              depth: 5,
+                              shadowDarkColor: Colors.black,
+                              color: Colors.blue.shade300,
+                              shape: NeumorphicShape.flat,
+                              boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(10),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => FourteenWeeks()));
+                            },
+                            child: Center(
+                              child: NeumorphicText(
+                                '14 weeks',
+                                textStyle: NeumorphicTextStyle(
+                                  fontSize: 17,
+                                ),
+                                style: NeumorphicStyle(
+                                    depth: 2,
+                                    shadowDarkColor: Colors.black,
+                                    color: Colors.white),
+                              ),
+                            ),
+                          ),
+                          NeumorphicButton(
+                            style: NeumorphicStyle(
+                              depth: 5,
+                              shadowDarkColor: Colors.black,
+                              color: Colors.blue.shade300,
+                              shape: NeumorphicShape.flat,
+                              boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(10),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SixToTwelve()));
+                            },
+                            child: Center(
+                              child: NeumorphicText(
+                                '6 - 12 months',
+                                textStyle: NeumorphicTextStyle(
+                                  fontSize: 17,
+                                ),
+                                style: NeumorphicStyle(
+                                    depth: 2,
+                                    shadowDarkColor: Colors.black,
+                                    color: Colors.white),
+                              ),
+                            ),
+                          ),
+                          NeumorphicButton(
+                            style: NeumorphicStyle(
+                              depth: 5,
+                              shadowDarkColor: Colors.black,
+                              color: Colors.blue.shade300,
+                              shape: NeumorphicShape.flat,
+                              boxShape: NeumorphicBoxShape.roundRect(
+                                BorderRadius.circular(10),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => OneToEighteen()));
+                            },
+                            child: Center(
+                              child: NeumorphicText(
+                                '1 - 18 years',
+                                textStyle: NeumorphicTextStyle(
+                                  fontSize: 17,
+                                ),
+                                style: NeumorphicStyle(
+                                    depth: 2,
+                                    shadowDarkColor: Colors.black,
+                                    color: Colors.white),
+                              ),
+                            ),
                           ),
                           SizedBox(
                             height: 10,
@@ -363,53 +323,6 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-
-        /// menu drawer
-        /*drawer: Container(
-          // width:MediaQuery.of(context).size.width/2,
-          child: Drawer(
-            child: Container(
-              color: Colors.blue.shade300,
-              child: ListView(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blue.shade300,
-                    ),
-                    child: DrawerHeader(
-                      child: CircleAvatar(
-                        child: ClipOval(
-                          child: Image(
-                            image:
-                                AssetImage('assets/images/kids-care-logo.png'),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      'itme1',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      'itme2',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      'itme3',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),*/
       ),
     );
   }
