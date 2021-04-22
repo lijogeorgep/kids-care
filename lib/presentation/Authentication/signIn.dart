@@ -40,7 +40,7 @@ class _SignInState extends State<SignIn> {
                         foreground: Paint()..shader = linearGradient),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height / 2 / 4,
+                    // height: MediaQuery.of(context).size.height / 2 / 4,
                     width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.all(20),
                     child: TextField(
@@ -65,7 +65,7 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height / 2 / 4,
+
                     width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.all(20),
                     child: TextField(
@@ -118,11 +118,13 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height / 2 / 5,
+                    padding: EdgeInsets.all(10),
                     width: MediaQuery.of(context).size.width,
-                    padding: EdgeInsets.all(20),
+                    // width: MediaQuery.of(context).size.width,
+                    // padding: EdgeInsets.all(20),
                     child: ElevatedButton(
                       style: ButtonStyle(
+                        padding: MaterialStateProperty.all(EdgeInsets.all(20)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         )),
@@ -157,28 +159,31 @@ class _SignInState extends State<SignIn> {
                       child: Text('Sign In'),
                     ),
                   ),
-                  Center(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text("Don't have account?"),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        InkWell(
-                          child: Text(
-                            'Sign up',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue.shade400,
-                              decoration: TextDecoration.underline,
-                            ),
+                  Container(     padding: EdgeInsets.only(bottom: 10),
+                    child: Center(
+
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text("Don't have account?"),
+                          SizedBox(
+                            width: 10,
                           ),
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
-                          },
-                        ),
-                      ],
+                          InkWell(
+                            child: Text(
+                              'Sign up',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue.shade400,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
