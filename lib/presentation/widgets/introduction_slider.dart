@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
+import 'package:kids_care/presentation/Authentication/signIn.dart';
 import 'package:kids_care/presentation/widgets/home_form.dart';
 import '../widgets/bottom_navigation.dart';
 class IntroductionSlider extends StatefulWidget {
@@ -37,6 +38,7 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
       new Slide(
         title: "Better life",
         description:
+
         "Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of",
         pathImage: "assets/images/sliderThree.jpg",
         backgroundColor:Colors.blue.shade300,
@@ -45,7 +47,7 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
   }
 
   void onDonePress() {
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeForm()));
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn()));
   }
 
   @override
