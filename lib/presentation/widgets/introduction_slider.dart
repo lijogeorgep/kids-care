@@ -22,7 +22,7 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
         // styleTitle: TextStyle(color: Colors.blueGrey,fontSize: 40),
         title: "Vaccination",
         description: "Allow miles wound place the leave had. To sitting subject no improve studied limited",
-        pathImage: "assets/images/sliderOne.jpg",
+        pathImage: "assets/images/slider1.png",
         backgroundColor: Colors.blue.shade300,
       ),
     );
@@ -30,7 +30,7 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
       new Slide(
         title: "Oral vaccine",
         description: "Ye indulgence unreserved connection alteration appearance",
-        pathImage: "assets/images/sliderTwo.jpg",
+        pathImage: "assets/images/slider2.png",
         backgroundColor: Colors.pink.shade300,
       ),
     );
@@ -40,7 +40,7 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
         description:
 
         "Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of",
-        pathImage: "assets/images/sliderThree.jpg",
+        pathImage: "assets/images/slider3.png",
         backgroundColor:Colors.blue.shade300,
       ),
     );

@@ -18,9 +18,9 @@ class DrawerData extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 150,
-              height: 150,
-              child: Image.asset('assets/images/kids-care-logo.png')),
+            width: 230,
+              height: 230,
+              child: Image.asset('assets/images/child-care-logo.png')),
           Text('Settings',style: TextStyle(color: Colors.white,fontSize: 35),),
          const Divider(
             color: Colors.white54,
